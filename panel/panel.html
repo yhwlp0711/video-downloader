@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>可下载的视频</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <div id="title">可下载的视频</div>
+      <div id="page" class="page"></div>
+    </div>
+    <div class="head-btns">
+      <button id="clear" title="清空已抓取的列表，重新扫描">清空</button>
+      <button id="refresh" title="重新扫描">刷新</button>
+    </div>
+  </header>
+
+  <main id="list"></main>
+
+  <div id="empty" class="empty hidden">
+    当前页面暂未发现可下载的视频。<br />
+    先让视频播放几秒，再点右上角「刷新」。
+  </div>
+
+  <script src="../lib/m3u8-parser.js"></script>
+  <script src="../lib/mux.min.js"></script>
+  <script src="../lib/engine.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>

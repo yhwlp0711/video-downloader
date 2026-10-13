@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "视频嗅探下载器",
+  "version": "0.1.0",
+  "description": "自用工具：嗅探网页中的视频 / m3u8 / MSE 流并下载合并",
+  "permissions": ["webRequest", "tabs", "downloads", "storage", "contextMenus"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/mse-hook.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    },
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["src/relay.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "视频嗅探下载器"
+  }
+}
